@@ -1,12 +1,19 @@
 import { h, onMounted, ref, defineComponent, withCtx } from 'vue';
-import { VNode, VNodeArrayChildren } from 'vue';
+import type { VNode, VNodeArrayChildren, VNodeChild } from 'vue';
+
+/**
+ * Interface for JSON-LD slots
+ */
+interface JsonLdSlots {
+    default?: () => VNode[];
+}
 
 /**
  * Define the properties for the component
  * @interface JsonLdProps
  */
 interface JsonLdProps {
-    jsonLd: object; // JSON-LD data
+    jsonLd: object | undefined; // JSON-LD data
     head: boolean; // Flag to determine if the script tag should be added to the head
 }
 
@@ -32,7 +39,7 @@ export default defineComponent({
      * @param props - The component's properties
      * @param slots - The component's slots
      */
-    setup(props: JsonLdProps, { slots }) {
+    setup(props: JsonLdProps, { slots }: { slots: JsonLdSlots }) {
         // Create a ref to hold the script tag
         const scriptTag = ref<HTMLScriptElement | null>(null);
 
@@ -50,7 +57,7 @@ export default defineComponent({
 
             // Get the text from the slot content or an empty string if there's no slot content
             const slotText = slotContent[0] && Array.isArray(slotContent[0].children) ?
-                (slotContent[0].children as VNodeArrayChildren).map((vnode: VNode) => vnode.children).join('') :
+                (slotContent[0].children as VNodeArrayChildren).map((vnode: VNodeChild) => vnode.children as VNodeNormalizedChildren).join('') :
                 slotContent[0] ? slotContent[0].children as string : '';
 
             // Set the innerHTML of the script element
@@ -85,10 +92,9 @@ export default defineComponent({
 
             // If head is true, return an empty div
             return props.head ?
-                h('div', []) :
-                // Otherwise, return a div with a script tag
+                h('div') :
                 h('div', [
-                    h('script', { type: 'application/ld+json' }, !props.head && slots.default ? slots.default()[0].children : (slots.default && typeof slots.default()[0] === 'string' ? slots.default()[0] : JSON.stringify(props.jsonLd)))
+                    h('script', { type: 'application/ld+json' }, !props.head && slots.default ? (slots.default()[0].children as string) : (slots.default && typeof slots.default()[0] === 'string' ? slots.default()[0] : JSON.stringify(props.jsonLd)))
                 ])
         }
     }

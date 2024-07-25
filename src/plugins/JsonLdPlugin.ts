@@ -1,5 +1,5 @@
 // Import necessary modules from vue
-import { App } from 'vue';
+import type { App, Component } from 'vue';
 // Import VueJsonLd component
 import VueJsonLd from '../components/VueJsonLd';
 
@@ -23,7 +23,7 @@ const JsonLdPlugin: JsonLdPlugin = {
      */
     install(app: App) {
         // Register the VueJsonLd component globally
-        app.component('vue-json-ld', VueJsonLd);
+        app.component('vue-json-ld', VueJsonLd as Component);
     }
 }
 
