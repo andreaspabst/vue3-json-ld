@@ -4,10 +4,12 @@
   "description": "Use JSON+LD in Vue JS with ease",
   "private": false,
   "author": "Andreas \"IT Pabst\" Pabst",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "src/app.js",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
