@@ -1,5 +1,5 @@
 // JsonLdPlugin.js
-import VueJsonLd from '../components/JsonLd.js';
+import VueJsonLd from '../components/VueJsonLd.ts';
 
 const JsonLdPlugin = {
     install(app) {
