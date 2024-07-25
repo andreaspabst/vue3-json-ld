@@ -31,7 +31,7 @@ export default defineComponent({
             const slotText = slotContent[0] && Array.isArray(slotContent[0].children) ?
                 (slotContent[0].children as VNodeArrayChildren).map((vnode: VNode) => vnode.children).join('') :
                 slotContent[0] ? slotContent[0].children as string : '';
-            scriptElement.innerHTML = props.head && slotContent.length > 0 ?
+            scriptElement.innerHTML = !props.head && slotContent.length > 0 ?
                 slotText :
                 (
                     slotContent.length > 0 && typeof slotContent[0] === 'string' ?
@@ -40,7 +40,9 @@ export default defineComponent({
                 );
 
             if (props.head) {
-                document.head.appendChild(scriptElement);
+                if (scriptElement.innerHTML !== 'undefined') {
+                    document.head.appendChild(scriptElement);
+                }
             } else {
                 scriptTag.value = scriptElement;
             }
@@ -54,7 +56,7 @@ export default defineComponent({
             return props.head ?
                 h('div', []) :
                 h('div', [
-                    h('script', { type: 'application/ld+json' }, slots.default && typeof slots.default()[0] === 'string' ? slots.default()[0] : JSON.stringify(props.jsonLd))
+                    h('script', { type: 'application/ld+json' }, !props.head && slots.default ? slots.default()[0].children : (slots.default && typeof slots.default()[0] === 'string' ? slots.default()[0] : JSON.stringify(props.jsonLd)))
                 ])
         }
     }

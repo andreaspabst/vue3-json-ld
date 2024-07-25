@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is also a corporation, which is placed in place",
+  "name": "This is a slot passed corporation, which is placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is also a corporation, which is placed in place",
+  "name": "This is a slot passed corporation, which is placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -55,7 +55,7 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "url": "http://www.example.com",
-      "name": "This is the last corporation placed in head",
+      "name": "This is a slot passed corporation placed in head",
       "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-123-456-1212",
@@ -69,7 +69,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is the last corporation placed in head",
+  "name": "This is a slot passed corporation placed in head",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -90,7 +90,7 @@ const jsonLdExample1 = ref({
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is a corporation placed in place",
+  "name": "This is a props passed corporation placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -102,7 +102,7 @@ const jsonLdExample2 = ref({
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is another Corporation placed in head",
+  "name": "This is a props passed Corporation placed in head",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-456-789-1212",
