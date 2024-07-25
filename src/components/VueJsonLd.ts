@@ -27,11 +27,21 @@ export default defineComponent({
             const scriptElement = document.createElement('script');
             scriptElement.type = 'application/ld+json';
             const slotContent = slots.default ? slots.default() : [];
-            scriptElement.innerHTML = props.head && slotContent.length > 0 ? slotContent[0].children : (slotContent.length > 0 && typeof slotContent[0] === 'string' ? slotContent[0] : JSON.stringify(props.jsonLd));
+            scriptElement.innerHTML = props.head && slotContent.length > 0 ?
+                slotContent[0].children :
+                (
+                    slotContent.length > 0 && typeof slotContent[0] === 'string' ?
+                        slotContent[0] :
+                        JSON.stringify(props.jsonLd)
+                );
 
             if (props.head) {
                 document.head.appendChild(scriptElement);
             } else {
+                if (!props.head && slots.default) {
+                    scriptElement.innerHTML = slots.default()[0].children;
+                    console.log(props.head, slots.default()[0].children, scriptElement);
+                }
                 scriptTag.value = scriptElement;
             }
         });

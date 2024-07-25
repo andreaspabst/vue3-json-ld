@@ -14,7 +14,7 @@
     <h2>Example 2 - Head</h2>
     <VueJsonLd :jsonLd="jsonLdExample2" :head="true" />
     <code>
-      &lt;JsonLd :jsonLd="jsonLdExample1" :head="true" /&gt;
+      &lt;JsonLd :jsonLd="jsonLdExample2" :head="true" /&gt;
     </code>
     <p>You won't see anything either, but the JSON-LD structured data is added to the head of the document.</p>
 
@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is also a corporation",
+  "name": "This is also a corporation, which is placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is also a corporation",
+  "name": "This is also a corporation, which is placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -55,7 +55,7 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "url": "http://www.example.com",
-      "name": "This is the last corporation",
+      "name": "This is the last corporation placed in head",
       "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-123-456-1212",
@@ -69,7 +69,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is the last corporation",
+  "name": "This is the last corporation placed in head",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -90,7 +90,7 @@ const jsonLdExample1 = ref({
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is a corporation",
+  "name": "This is a corporation placed in place",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-123-456-1212",
@@ -102,7 +102,7 @@ const jsonLdExample2 = ref({
   "@context": "https://schema.org",
   "@type": "Organization",
   "url": "http://www.example.com",
-  "name": "This is another Corporation",
+  "name": "This is another Corporation placed in head",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-456-789-1212",
