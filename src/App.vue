@@ -7,7 +7,7 @@
     <h2>Example 1 - Render in Place</h2>
     <VueJsonLd :jsonLd="jsonLdExample1" />
     <code>
-      &lt;JsonLd :jsonLd="jsonLdExample1" :head="false" /&gt;
+      &lt;JsonLd :jsonLd="jsonLdExample1" /&gt;
     </code>
     <p>You won't see anything in the browser, but the JSON-LD structured data is added at its place.</p>
 
@@ -64,7 +64,7 @@
       }
     </VueJsonLd>
     <code><pre>
-&lt;JsonLd&gt;
+&lt;JsonLd :head=&quot;true&quot;&gt;
 {
   "@context": "https://schema.org",
   "@type": "Organization",

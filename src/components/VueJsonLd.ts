@@ -20,9 +20,14 @@ export default defineComponent({
         const scriptTag = ref<HTMLScriptElement | null>(null);
 
         onMounted(() => {
+            if (!props.jsonLd && !slots.default) {
+                return;
+            }
+
             const scriptElement = document.createElement('script');
             scriptElement.type = 'application/ld+json';
-            scriptElement.innerHTML = slots.default ? slots.default() : JSON.stringify(props.jsonLd);
+            const slotContent = slots.default ? slots.default() : [];
+            scriptElement.innerHTML = props.head && slotContent.length > 0 ? slotContent[0].children : (slotContent.length > 0 && typeof slotContent[0] === 'string' ? slotContent[0] : JSON.stringify(props.jsonLd));
 
             if (props.head) {
                 document.head.appendChild(scriptElement);
@@ -31,10 +36,16 @@ export default defineComponent({
             }
         });
 
-        return () => props.head ?
-            h('div', []) :
-            h('div', [
-                h('script', { type: 'application/ld+json' }, slots.default ? slots.default() : JSON.stringify(props.jsonLd))
-            ])
+        return () => {
+            if (!props.jsonLd && !slots.default) {
+                return null;
+            }
+
+            return props.head ?
+                h('div', []) :
+                h('div', [
+                    h('script', { type: 'application/ld+json' }, slots.default && typeof slots.default()[0] === 'string' ? slots.default()[0] : JSON.stringify(props.jsonLd))
+                ])
+        }
     }
 });
