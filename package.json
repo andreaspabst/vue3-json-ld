@@ -6,7 +6,7 @@
   "author": "Andreas \"IT Pabst\" Pabst",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "src/main.js",
+  "main": "src/app.js",
   "files": ["dist/**/*"],
   "scripts": {
     "dev": "vite",
