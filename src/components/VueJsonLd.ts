@@ -1,4 +1,4 @@
-import { h, onMounted, ref, defineComponent } from 'vue';
+import { h, onMounted, ref, defineComponent, withCtx } from 'vue';
 
 interface JsonLdProps {
     jsonLd: object;
@@ -9,20 +9,20 @@ export default defineComponent({
     props: {
         jsonLd: {
             type: Object as () => JsonLdProps['jsonLd'],
-            required: true
+            required: false
         },
         head: {
             type: Boolean as () => JsonLdProps['head'],
             default: false
         }
     },
-    setup(props: JsonLdProps) {
+    setup(props: JsonLdProps, { slots }) {
         const scriptTag = ref<HTMLScriptElement | null>(null);
 
         onMounted(() => {
             const scriptElement = document.createElement('script');
             scriptElement.type = 'application/ld+json';
-            scriptElement.innerHTML = JSON.stringify(props.jsonLd);
+            scriptElement.innerHTML = slots.default ? slots.default() : JSON.stringify(props.jsonLd);
 
             if (props.head) {
                 document.head.appendChild(scriptElement);
@@ -31,12 +31,10 @@ export default defineComponent({
             }
         });
 
-
-
         return () => props.head ?
             h('div', []) :
             h('div', [
-                h('script', { type: 'application/ld+json' }, JSON.stringify(props.jsonLd))
+                h('script', { type: 'application/ld+json' }, slots.default ? slots.default() : JSON.stringify(props.jsonLd))
             ])
     }
 });
