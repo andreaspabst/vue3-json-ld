@@ -57,7 +57,12 @@ export default defineComponent({
 
             // Get the text from the slot content or an empty string if there's no slot content
             const slotText = slotContent[0] && Array.isArray(slotContent[0].children) ?
-                (slotContent[0].children as VNodeArrayChildren).map((vnode: VNodeChild) => vnode.children as VNodeNormalizedChildren).join('') :
+                (slotContent[0].children as VNodeChild[]).map((vnode: VNodeChild) => {
+                    if (typeof vnode === 'object' && vnode !== null && 'children' in vnode) {
+                        return vnode.children as string;
+                    }
+                    return '';
+                }).join('') :
                 slotContent[0] ? slotContent[0].children as string : '';
 
             // Set the innerHTML of the script element
