@@ -1,4 +1,4 @@
-# vue-json-ld
+# vue3-json-ld
 
 [![Vue JS Seminar](https://www.vuejs-seminar.de/img/VuejsSeminar/logo_color.png "Vue JS Seminar")](https://www.vuejs-seminar.de/)
 
