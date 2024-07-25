@@ -1,4 +1,5 @@
 import { h, onMounted, ref, defineComponent, withCtx } from 'vue';
+import { VNode, VNodeArrayChildren } from 'vue';
 
 interface JsonLdProps {
     jsonLd: object;
@@ -27,8 +28,11 @@ export default defineComponent({
             const scriptElement = document.createElement('script');
             scriptElement.type = 'application/ld+json';
             const slotContent = slots.default ? slots.default() : [];
+            const slotText = slotContent[0] && Array.isArray(slotContent[0].children) ?
+                (slotContent[0].children as VNodeArrayChildren).map((vnode: VNode) => vnode.children).join('') :
+                slotContent[0] ? slotContent[0].children as string : '';
             scriptElement.innerHTML = props.head && slotContent.length > 0 ?
-                slotContent[0].children :
+                slotText :
                 (
                     slotContent.length > 0 && typeof slotContent[0] === 'string' ?
                         slotContent[0] :
@@ -38,10 +42,6 @@ export default defineComponent({
             if (props.head) {
                 document.head.appendChild(scriptElement);
             } else {
-                if (!props.head && slots.default) {
-                    scriptElement.innerHTML = slots.default()[0].children;
-                    console.log(props.head, slots.default()[0].children, scriptElement);
-                }
                 scriptTag.value = scriptElement;
             }
         });
