@@ -122,5 +122,8 @@ You can simply pass your json+ld String as the default slot (between the compone
 
 ## Resources
 
-[Vue JS Seminars and Coaching](https://www.vuejs-seminar.de/)
-[Vue JSON LD Plugin](https://www.vuejs-seminar.de/packages/vue3-json-ld)
+- [📺 IT Pabst YouTube](https://www.youtube.com/channel/UC2qIzllaHNtseSXwj18r-7w)
+- [Vue JS Seminars and Coaching](https://www.vuejs-seminar.de/)
+- [Vue JSON LD Plugin](https://www.vuejs-seminar.de/packages/vue3-json-ld)
+- [Laravel Seminars and Coaching](https://www.laravel-seminar.de/)
+- [Andreas Pabst](https://www.andreaspabst.com)
