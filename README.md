@@ -1,6 +1,6 @@
 # vue-json-ld
 
-![Vue JS Seminar](http://vuejs-seminar.loc:8000/img/VuejsSeminar/logo_color.svg "Vue JS Seminar")
+![Vue JS Seminar](https://www.vuejs-seminar.de/img/VuejsSeminar/logo_color.png "Vue JS Seminar")
 
 ## Why is there a package?
 
