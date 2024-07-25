@@ -4,7 +4,7 @@
   "description": "Use JSON+LD in Vue JS with ease",
   "private": false,
   "author": "Andreas \"IT Pabst\" Pabst",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "src/app.js",
   "files": ["dist/**/*"],
