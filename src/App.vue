@@ -7,14 +7,14 @@
     <h2>Example 1 - Render in Place</h2>
     <VueJsonLd :jsonLd="jsonLdExample1" />
     <code>
-      &lt;JsonLd :jsonLd="jsonLdExample1" /&gt;
+      &lt;VueJsonLd :jsonLd="jsonLdExample1" /&gt;
     </code>
     <p>You won't see anything in the browser, but the JSON-LD structured data is added at its place.</p>
 
     <h2>Example 2 - Head</h2>
     <VueJsonLd :jsonLd="jsonLdExample2" :head="true" />
     <code>
-      &lt;JsonLd :jsonLd="jsonLdExample2" :head="true" /&gt;
+      &lt;VueJsonLd :jsonLd="jsonLdExample2" :head="true" /&gt;
     </code>
     <p>You won't see anything either, but the JSON-LD structured data is added to the head of the document.</p>
 
@@ -33,7 +33,7 @@
 }
     </VueJsonLd>
     <code><pre>
-&lt;JsonLd&gt;
+&lt;VueJsonLd&gt;
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -45,7 +45,7 @@
     "contactType": "Customer service"
   }
 }
-&lt;/JsonLd&gt;
+&lt;/VueJsonLd&gt;
     </pre></code>
     <p>You also won't see anything in this example, but the JSON-LD structured data passed as a string is rendered in place.</p>
 
@@ -64,7 +64,7 @@
       }
     </VueJsonLd>
     <code><pre>
-&lt;JsonLd :head=&quot;true&quot;&gt;
+&lt;VueJsonLd :head=&quot;true&quot;&gt;
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -76,7 +76,7 @@
     "contactType": "Customer service"
   }
 }
-&lt;/JsonLd&gt;
+&lt;/VueJsonLd&gt;
     </pre></code>
     <p>You also won't see anything in this example, but the JSON-LD structured data passed as a string is rendered in place.</p>
   </div>

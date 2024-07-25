@@ -1,5 +1,5 @@
 {
-  "name": "vue-json-ld",
+  "name": "vue3-json-ld",
   "type": "module",
   "description": "Use JSON+LD in Vue JS with ease",
   "private": false,
