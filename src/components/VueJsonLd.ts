@@ -31,7 +31,7 @@ export default defineComponent({
             const slotText = slotContent[0] && Array.isArray(slotContent[0].children) ?
                 (slotContent[0].children as VNodeArrayChildren).map((vnode: VNode) => vnode.children).join('') :
                 slotContent[0] ? slotContent[0].children as string : '';
-            scriptElement.innerHTML = !props.head && slotContent.length > 0 ?
+            scriptElement.innerHTML = props.head && slotContent.length > 0 ?
                 slotText :
                 (
                     slotContent.length > 0 && typeof slotContent[0] === 'string' ?
