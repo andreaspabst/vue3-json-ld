@@ -1,12 +1,19 @@
 import { h, onMounted, ref, defineComponent, withCtx } from 'vue';
 import { VNode, VNodeArrayChildren } from 'vue';
 
-// Define the properties for the component
+/**
+ * Define the properties for the component
+ * @interface JsonLdProps
+ */
 interface JsonLdProps {
     jsonLd: object; // JSON-LD data
     head: boolean; // Flag to determine if the script tag should be added to the head
 }
 
+/**
+ * Vue component for handling JSON-LD data
+ * @component
+ */
 export default defineComponent({
     // Define the component's properties
     props: {
@@ -19,6 +26,12 @@ export default defineComponent({
             default: false // Default value is false
         }
     },
+
+    /**
+     * Setup function for the component
+     * @param props - The component's properties
+     * @param slots - The component's slots
+     */
     setup(props: JsonLdProps, { slots }) {
         // Create a ref to hold the script tag
         const scriptTag = ref<HTMLScriptElement | null>(null);
