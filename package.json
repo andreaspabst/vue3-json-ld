@@ -53,7 +53,7 @@
     "jsonld"
   ],
   "bugs": {
-    "url": "https://github.com/andreaspabst/vue-json-ld/issues"
+    "url": "https://github.com/andreaspabst/vue3-json-ld/issues"
   },
-  "homepage": "https://github.com/andreaspabst/vue-json-ld#readme"
+  "homepage": "https://github.com/andreaspabst/vue3-json-ld#readme"
 }
