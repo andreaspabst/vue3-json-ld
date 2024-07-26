@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreaspabst/vue-json-ld.git"
+    "url": "git+https://github.com/andreaspabst/vue3-json-ld.git"
   },
   "keywords": [
     "vuejs",
