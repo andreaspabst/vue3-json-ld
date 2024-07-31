@@ -6,7 +6,8 @@
   "author": "Andreas \"IT Pabst\" Pabst",
   "version": "1.0.10",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/vue3-json-ld.umd.cjs",
+  "module": "dist/vue3-json-ld.js",
   "files": [
     "dist/**/*",
     "src/**/*"
