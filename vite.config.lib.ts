@@ -5,7 +5,7 @@ import baseConfig from './vite.config';
 const libConfig = defineConfig({
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/plugins/Vue3JsonLd.ts'),
+            entry: resolve(__dirname, 'src/plugins/JsonLdPlugin.ts'),
             name: 'Vue3JsonLd',
             fileName: 'vue3-json-ld',
         },
